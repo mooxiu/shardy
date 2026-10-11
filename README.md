@@ -75,3 +75,13 @@ Here's how to build the Shardy repo on Linux or macOS:
 If you'd like to build JAX with a modified version of Shardy, you can find
 instructions at
 https://jax.readthedocs.io/en/latest/developer.html#building-jaxlib-from-source-with-a-modified-xla-repository.
+
+## Building with CMake
+```
+cmake -B build -G Ninja \
+    -DLLVM_ENABLE_LLD=ON \
+    -DCMAKE_BUILD_TYPE='Release' \
+    -DLLVM_ENABLE_ASSERTIONS='OFF' \
+    -DMLIR_DIR="${PWD}"/../llvm-project/build/lib/cmake/mlir \
+    -DSTABLEHLO_PROJECT="${PWD}"/../stablehlo
+```
